@@ -26,7 +26,7 @@ const TodoForm = (props) => {
   }
 
   // Retorna um HTML com as informacoes para o Usuario.
-  return (<div>
+  return (<div className="container">
     <label for="fname">Nova Tarefa:</label>
     <input type="text" id="nTarefa" name="nTarefa" onChange={handleEvent} value={text} />
     <button type="button" onClick={handleClick}>OK</button>

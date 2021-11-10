@@ -1,0 +1,34 @@
+:root {
+  --primaru-color: rgb(62, 76, 196);
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--primaru-color);
+}
+
+.container, .App {
+  max-width: 640px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+form input, form label, form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+form input {
+  font-size: 15px;
+  height: 30px;  
+
+}
