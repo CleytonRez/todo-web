@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { postTodo } from '../../api/api';
 import './TodoForm.css';
 
 // Componente (Comeca com letra Maiuscula e Retornam HTML) que adiciona uma nova Tarefa na Lista.
@@ -6,19 +7,36 @@ const TodoForm = (props) => {
 
     // Criacao que um Estado (Objeto que é vigiado) contendo o Texto que ira para o Estado TODO.
     const [text, setText] = React.useState("") // "" Valor inicial do Estado (String Vazia)
+
+    // Funcao useEffect
+    useEffect(() => {
+
+        // Se for todo de props
+        if (props.todo) {
+
+            // Seta a tarefa no setText
+            setText(props.todo.text)
+        }
+    }, [props.todo])
     console.log(text)
 
     // Funcao que captura o Clique no botao OK.
     const handleClick = () => {
 
+        // Variavel body contendo as informacoes do corpo.
+        const body = props.todo || {}
+
         // Seta o Valor do estado Text.
         props.handleSetTodo(
             {
-                description: text,
-                id: Math.random()
+                ...body,
+                text,
+                isChecked: false,
+
             }
         )
         console.log("Clicou!")
+        setText("")
     }
 
     // Funcao que Captura oque e escrito no Input.
